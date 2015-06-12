@@ -1,3 +1,8 @@
+/**
+ * SampleJanken.java
+ * @author 15M39241　西坂直登
+ *
+ */
 public class SampleJanken {
 	
 	// じゃんけんの手
