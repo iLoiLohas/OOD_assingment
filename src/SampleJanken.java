@@ -11,53 +11,61 @@ public class SampleJanken {
 		janken.startJanken();
 	}
 	
-	// ■■■■■■■■■■■■■■■■■■■■■■■■■■
-	// じゃんけんを開始する
-	// ■■■■■■■■■■■■■■■■■■■■■■■■■■
+	/**
+	 * じゃんけんを開始する
+	 */
 	public void startJanken() {
 		int player1Hand = 0, player2Hand = 0;
+		int player1WinCount = 0, player2WinCount = 0;
 		int[] playerWinCount = new int[2];
+		
 		// ジャンケンを３回実施する
 		for (int cnt = 0; cnt < 3; cnt++)
 		{
 			System.out.println("【" + (cnt + 1) + "回戦目】");
 			player1Hand	= decideHand();
+			System.out.print("vs");
 			player2Hand	= decideHand();
-			playerWinCount[0]	+= judgeJanken(player1Hand, player2Hand)[0];
-			playerWinCount[1]	+= judgeJanken(player1Hand, player2Hand)[1];
+			System.out.println();
+			// 勝敗を判定
+			playerWinCount	= judgeJanken(player1Hand, player2Hand);
+			player1WinCount	+= playerWinCount[0];
+			player2WinCount	+= playerWinCount[1];
 		}
-		endJanken(playerWinCount);
+		endJanken(player1WinCount, player2WinCount);
 	}
-	
-	public void endJanken(int[] playerWinCount) {
-		System.out.println("【ジャンケン終了】¥n");
+
+	/**
+	 * じゃんけんを終了する
+	 * @param playerWinCount
+	 */
+	public void endJanken(int player1WinCount, int player2WinCount) {
+		System.out.println("【ジャンケン終了】");
 		
 		// プレイヤー１の勝ち数が多い時
-		if (playerWinCount[0] > playerWinCount[1])
+		if (player1WinCount > player2WinCount)
 		{
 			// プレイヤー１の勝ちを表示する。
-			System.out.println(playerWinCount[0] + "対" + playerWinCount[1]
-					+ "でプレイヤー１の勝ちです！¥n");
+			System.out.println(player1WinCount + "対" + player2WinCount + "でプレイヤー１の勝ちです！");
 		}
 		// プレイヤー２の勝ち数が多い時
-		else if (playerWinCount[0] < playerWinCount[1])
+		else if (player1WinCount < player2WinCount)
 		{
 			// プレイヤー２の勝ちを表示する。
-			System.out.println(playerWinCount[0] + "対" + playerWinCount[1]
-					+ "でプレイヤー２の勝ちです！¥n");
+			System.out.println(player2WinCount + "対" + player2WinCount + "でプレイヤー２の勝ちです！");
 		}
 		// プレイヤー１と２の勝ち数が同じ時
-		else if (playerWinCount[0] == playerWinCount[1])
+		else if (player1WinCount == player2WinCount)
 		{
 			// 引き分けを表示する。
-			System.out.println(playerWinCount[0] + "対" + playerWinCount[1]
-					+ "で引き分けです！¥n");
+			System.out.println(player1WinCount + "対" + player2WinCount + "で引き分けです！");
 		}
 	}
 
-	// ■■■■■■■■■■■■■■■■■■■■■■■■■■
-	// プレイヤーが何を出すか決める
-	// ■■■■■■■■■■■■■■■■■■■■■■■■■■
+	/**
+	 * プレイヤーが何を出すか決める
+	 * @return
+	 */
 	public int decideHand() {
 		// ジャンケンの手を決めるのに使用する乱数
 		double randomNum = 0;		
@@ -83,31 +91,38 @@ public class SampleJanken {
 		return playerHand;
 	}
 	
-	// ■■■■■■■■■■■■■■■■■■■■■■■■■■
-	// どちらが勝ちかを判定し、結果を表示する
-	// ■■■■■■■■■■■■■■■■■■■■■■■■■■
+	/**
+	 * 勝者を判定し，結果を表示する
+	 * @param player1Hand
+	 * @param player2Hand
+	 * @return
+	 */
 	public int[] judgeJanken(int player1Hand, int player2Hand) {
 		// プレイヤーの勝ち数
-		int playerWinCount[] = new int[2];
+		int player1WinCount = 0, player2WinCount = 0;
+		int[] playerWinCount = new int[2];
 
 		// プレイヤー１が勝つ場合
 		if ((player1Hand == STONE && player2Hand == SCISSORS)
 				|| (player1Hand == SCISSORS && player2Hand == PAPER)
 				|| (player1Hand == PAPER && player2Hand == STONE)) {
-			System.out.println("¥nプレイヤー１が勝ちました！¥n");
-			playerWinCount[0]++;
+			System.out.println("プレイヤー１が勝ちました！");
+			player1WinCount++;
 		}
 		// プレイヤー２が勝つ場合
 		else if ((player1Hand == STONE && player2Hand == PAPER)
 				|| (player1Hand == SCISSORS && player2Hand == STONE)
 				|| (player1Hand == PAPER && player2Hand == SCISSORS)) {
-			System.out.println("¥nプレイヤー２が勝ちました！¥n");
-			playerWinCount[1]++;
+			System.out.println("プレイヤー２が勝ちました！");
+			player2WinCount++;
 		}
 		// 引き分けの場合
 		else {
-			System.out.println("¥n引き分けです！¥n");
+			System.out.println("引き分けです！");
 		}
+		playerWinCount[0] = player1WinCount;
+		playerWinCount[1] = player2WinCount;
+		
 		return playerWinCount;
 	}
 }
