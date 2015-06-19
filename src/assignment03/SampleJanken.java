@@ -1,4 +1,4 @@
-package assignment02;
+package assignment03;
 
 public class SampleJanken {
 
