@@ -41,14 +41,14 @@ public class Judge {
 				|| (player1Hand == Hand.PAPER && player2Hand == Hand.STONE)) {
 			System.out.println(player1.getName()+"が勝ちました！\n");
 			// プレイヤー１の勝ち数に１加える
-			player1.setWinCount(player1.getWinCount()+1);
+			player1.notifyResult();
 		}
 		// プレイヤー２が勝つ場合
 		else if ((player1Hand == Hand.STONE && player2Hand == Hand.PAPER)
 				|| (player1Hand == Hand.SCISSORS && player2Hand == Hand.STONE)
 				|| (player1Hand == Hand.PAPER && player2Hand == Hand.SCISSORS)) {
 			System.out.println(player2.getName()+"が勝ちました！\n");
-			player2.setWinCount(player2.getWinCount()+1);
+			player2.notifyResult();
 		}
 		// 引き分けの場合
 		else {

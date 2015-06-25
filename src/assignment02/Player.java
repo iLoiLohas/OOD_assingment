@@ -48,7 +48,7 @@ public class Player {
 	 * 審判に勝敗を聞いて勝ち数を更新する
 	 */
 	public void notifyResult(){
-		
+		this.winCount_+=1;
 	}
 	/**
 	 * 勝った回数を数える
@@ -70,6 +70,5 @@ public class Player {
 	 */
 	public String getName(){
 		return this.name_;
-	}
+	}	
 }
-
