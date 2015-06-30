@@ -1,7 +1,11 @@
 package assignment02;
 
 import assignment02.Player.Hand;
-
+/**
+ * Test_Player.java
+ * @author 15M39241　西坂 直登
+ *
+ */
 public class Test_Player {
 	public static void main(String[] args) {
 		

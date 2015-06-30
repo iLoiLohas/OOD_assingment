@@ -1,5 +1,9 @@
 package assignment02;
-
+/**
+ * Player.java
+ * @author 15M39241　西坂 直登
+ *
+ */
 public class Player {
 
 	// じゃんけんの手

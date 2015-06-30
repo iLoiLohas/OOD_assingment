@@ -1,6 +1,6 @@
 package assignment03;
 
-public class SampleJanken {
+public class ObjectJanken {
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
