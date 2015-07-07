@@ -16,7 +16,7 @@ public class Player {
 	 * コンストラクタで名前を設定する
 	 * @param name
 	 */
-	Player(String name){
+	public Player(String name){
 		this.name_	= name;
 	}
 	/**
@@ -70,6 +70,30 @@ public class Player {
 	 */
 	public String getName(){
 		return this.name_;
+	}
+	/**
+	 * じゃんけん開始のセリフ
+	 * @return startWord
+	 */
+	public String startWord(){
+		String startWord	="じゃんけんスタートだ！";
+		return startWord;
+	}
+	/**
+	 * じゃんけん勝利のセリフ
+	 * @return winWord
+	 */
+	public String winWord(){
+		String winWord	= "やった！勝ったぞ！";
+		return winWord;
+	}
+	/**
+	 * じゃんけんドローのセリフ
+	 * @return drawWord
+	 */
+	public String drawWord(){
+		String drawWord	= "引き分けだったね！";
+		return drawWord;
 	}
 }
 

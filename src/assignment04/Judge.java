@@ -9,7 +9,11 @@ public class Judge {
 	 */
 	void startJanken(Player player1, Player player2){
 		
+		// じゃんけんスタートの掛け声
 		System.out.println("【じゃんけん開始】");
+		System.out.println(player1.getName()+"："+"「"+player1.startWord()+"」");
+		System.out.println(player2.getName()+"："+"「"+player2.startWord()+"」");
+		System.out.print("\n");
 		
 		// ３回勝負
 		for (int i = 1; i <= 3; i++) {
@@ -39,7 +43,9 @@ public class Judge {
 		if ((player1Hand == Hand.STONE && player2Hand == Hand.SCISSORS)
 				|| (player1Hand == Hand.SCISSORS && player2Hand == Hand.PAPER)
 				|| (player1Hand == Hand.PAPER && player2Hand == Hand.STONE)) {
-			System.out.println(player1.getName()+"が勝ちました！\n");
+			System.out.println(player1.getName()+"が勝ちました！");
+			System.out.println(player1.getName()+"："+"「"+player1.winWord()+"」");
+			System.out.print("\n");
 			// プレイヤー１の勝ち数に１加える
 			player1.notifyResult();
 		}
@@ -47,12 +53,17 @@ public class Judge {
 		else if ((player1Hand == Hand.STONE && player2Hand == Hand.PAPER)
 				|| (player1Hand == Hand.SCISSORS && player2Hand == Hand.STONE)
 				|| (player1Hand == Hand.PAPER && player2Hand == Hand.SCISSORS)) {
-			System.out.println(player2.getName()+"が勝ちました！\n");
+			System.out.println(player2.getName()+"が勝ちました！");
+			System.out.println(player2.getName()+"："+"「"+player2.winWord()+"」");
+			System.out.print("\n");
 			player2.notifyResult();
 		}
 		// 引き分けの場合
 		else {
-			System.out.println("引き分けです！\n");
+			System.out.println("引き分けです！");
+			System.out.println(player1.getName()+"："+"「"+player1.drawWord()+"」");
+			System.out.println(player2.getName()+"："+"「"+player2.drawWord()+"」");
+			System.out.print("\n");
 		}
 	}
 	/**
