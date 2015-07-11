@@ -16,6 +16,7 @@ public class Player {
 
 	private String name_;
 	private Serifu serifu_;
+	private Tactics tactics_;
 	private int winCount_	= 0;
 	
 	/**
@@ -26,29 +27,18 @@ public class Player {
 		this.name_	= name;
 	}
 	/**
+	 * プレイヤーに戦略を渡す
+	 * @param tactics
+	 */
+	public void setTactics(Tactics tactics){
+		tactics_	= tactics;
+	}
+	/**
 	 * ランダムに手を出す
 	 * @return playerHand
 	 */
 	public Hand showHand(){
-		// ジャンケンの手を決めるのに使用する乱数
-		double randomNum = 0;		
-		// プレイヤーが出す手
-		Hand playerHand	= null;
-		
-		randomNum	= Math.random() * 3;
-		if (randomNum < 1)
-		{
-			playerHand = Hand.STONE;
-		}
-		else if (randomNum < 2)
-		{
-			playerHand = Hand.SCISSORS;
-		}
-		else if (randomNum < 3)
-		{
-			playerHand = Hand.PAPER;
-		}
-		return playerHand;
+		return tactics_.readTactics();
 	}
 	/**
 	 * 審判に勝敗を聞いて勝ち数を更新する
