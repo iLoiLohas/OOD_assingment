@@ -1,4 +1,9 @@
 package assignment04;
+/**
+ * Object.java
+ * @author 15M39241　西坂 直登
+ *
+ */
 
 public class ObjectJanken {
 

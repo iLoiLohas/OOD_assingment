@@ -1,8 +1,13 @@
 package assignment04;
-
+/**
+ * Player.java
+ * @author 15M39241　西坂 直登
+ *
+ */
 public class Player {
-
-	// じゃんけんの手
+	/**
+	 * じゃんけんの手は列挙型として定義する！！！
+	 */
 	public enum Hand{
 		STONE,
 		SCISSORS,

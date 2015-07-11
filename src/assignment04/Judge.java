@@ -1,7 +1,11 @@
 package assignment04;
 
 import assignment04.Player.Hand;
-
+/**
+ * Judge.java
+ * @author 15M39241　西坂 直登
+ *
+ */
 public class Judge {
 
 	/**
